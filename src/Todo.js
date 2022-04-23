@@ -25,7 +25,7 @@ function Todo(){
         dispatch({type: ACTIONS.ADD_TODO, payload:{task:task}});
         SetTask('');
     }
-console.log(tasks)
+
     return(
         <form onSubmit={handleSubmit}>
             <label htmlFor="task">Todo</label>

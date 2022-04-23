@@ -1,5 +1,6 @@
 import React, {useState,useReducer} from 'react';
-import Todo from './Todo.js';
+import TwoDo from './TwoDo.js';
+import List from './List.js';
 import './App.css';
 
 function reducer(state, action){
@@ -26,7 +27,9 @@ function App() {
       <button onClick={add}>+</button>
       <span>{state.count}</span>
       <button onClick={minus}>-</button>
-      <Todo></Todo>
+      <TwoDo></TwoDo>
+      <div></div>
+      <List></List>
     </div>
   );
 }
