@@ -1,32 +1,31 @@
 import React, {useState,useReducer} from 'react';
 import Todo from './Todo.js';
+import Todo2 from './Todo2.js';
 import './App.css';
 
-function reducer(state, action){
-  switch(action.type){
-    case 'increment':
-      return {count: state.count + 1}
-    case 'decrement':
-      return {count:state.count - 1}
-    default:
-      return {state}
-  }
+
+function reducer(counter, action){
+
 }
+
 function App() {
-  const [state, dispatch] = useReducer(reducer, {count:1})
- 
+  
+ const [value, setValue] = useState(0);
+ const [counter, Dispatch] = useReducer(reducer,{count:1});
+
   const add = () =>{
-   dispatch({type:'increment'})
+   setValue(value+1)
   }
   const minus = () =>{
-    dispatch({type:'decrement'})
+    setValue(value-1)
   }
   return (
     <div className="App">
       <button onClick={add}>+</button>
-      <span>{state.count}</span>
+      <span>Value:{value}</span>
       <button onClick={minus}>-</button>
-      <Todo></Todo>
+      
+      <Todo2></Todo2>
     </div>
   );
 }
