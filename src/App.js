@@ -1,31 +1,38 @@
 import React, {useState,useReducer} from 'react';
-import Todo from './Todo.js';
-import Todo2 from './Todo2.js';
+import Todo from './DewList.js';
+import DewList from './DewList';
 import './App.css';
 
 
 function reducer(counter, action){
-
+  switch(action.type){
+    case 'increment':
+      return{count:counter.count+1}
+    case 'decrement':
+      return{count:counter.count-1}  
+    default:
+      return counter  
+  }
 }
 
 function App() {
   
  const [value, setValue] = useState(0);
- const [counter, Dispatch] = useReducer(reducer,{count:1});
+ const [counter, dispatch] = useReducer(reducer,{count:0});
 
   const add = () =>{
-   setValue(value+1)
+   dispatch({type:'increment'})
   }
   const minus = () =>{
-    setValue(value-1)
+    dispatch({type:'decrement'})
   }
   return (
     <div className="App">
       <button onClick={add}>+</button>
-      <span>Value:{value}</span>
+      <span>Values:{counter.count}</span>
       <button onClick={minus}>-</button>
       
-      <Todo2></Todo2>
+      <DewList></DewList>
     </div>
   );
 }
