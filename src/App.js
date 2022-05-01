@@ -32,7 +32,6 @@ function App() {
       <button onClick={add}>+</button>
       <span>Values:{counter.count}</span>
       <button onClick={minus}>-</button>
-      
       <DewList></DewList>
     </div>
   );
