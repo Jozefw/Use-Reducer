@@ -11,6 +11,7 @@ function reducer(counter, action){
     case 'decrement':
       return{count:counter.count-1}  
     default:
+      
       return counter  
   }
 }
