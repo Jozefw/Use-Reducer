@@ -12,7 +12,7 @@ function reducer(todoCollection,action){
             return([...todoCollection,addTask(action.payload.task)])
         case ACTIONS.UPDATE_TODO:
             return(todoCollection.map((CollectionItem)=>{
-                if(CollectionItem.id === action.payload.updatedId){
+                if(CollectionItem.id === action.payload.updateId){
                     return{...CollectionItem, completed:!CollectionItem.completed}
                 }
                 return CollectionItem;

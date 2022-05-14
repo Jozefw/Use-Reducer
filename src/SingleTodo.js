@@ -9,7 +9,7 @@ export default function SingleTodo({item,dispatch}) {
 
   return (
       <div>
-      <span style={{color:item.completed ? 'red' :'#000'}}>{item.todoItem}</span>
+      <span style={{color:item.completed ? 'red' :'blue'}}>{item.todoItem}</span>
       <button onClick={handleUpdate}>Update</button>
       <button>Delete</button>
       </div>
