@@ -1,13 +1,20 @@
 import React, {useState,useReducer} from 'react';
+import TodoList from './TodoList';
 
 const ACTIONS = {
-    ADD_TODO:'new_todo'
+    ADD_TODO:'new_todo',
+    TOGGLE_TODO:'update_todo',
+    DELETE_TODO:'delete_todo'
 }
 
 function reducer(todos,action){
     switch(action.type){
         case ACTIONS.ADD_TODO:
             return [...todos,newTodo(action.payload.thing)]
+        case ACTIONS.TOGGLE_TODO:
+            return []    
+        case ACTIONS.DELETE_TODO:
+            return[]    
         default:
             return(todos)    
     }
@@ -34,7 +41,8 @@ const DewList= ()=>{
         setTodo('');
     }
 
-
+    
+   
     return(
     
     <form onSubmit={handleSubmit}>
@@ -46,7 +54,11 @@ const DewList= ()=>{
         onChange={handleChange}
         >
         </input>
-       
+        
+       {todos.map(item=>{
+        return<TodoList key={item.id} id={item.id} todo={item}></TodoList>
+    })}
+    
     </form>
 
     )
