@@ -4,7 +4,8 @@ import SingleTodo from './SingleTodo';
 
 export const ACTIONS = {
     ADD_TODO:'addTodo',
-    UPDATE_TODO:'update'
+    UPDATE_TODO:'update',
+    DELETE_TODO:'delete'
 }
 function reducer(todoCollection,action){
     switch(action.type){
@@ -17,6 +18,9 @@ function reducer(todoCollection,action){
                 }
                 return CollectionItem;
             }))
+        case ACTIONS.DELETE_TODO:  
+            return todoCollection.filter(deleteItem=>deleteItem.id !== action.payload.deleteId)
+            
         default:  
             return todoCollection    
     }
